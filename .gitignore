@@ -11,7 +11,7 @@
 .env.development
 .env.test
 
-db.sql
+**/db.sql
 
 # testing
 /coverage

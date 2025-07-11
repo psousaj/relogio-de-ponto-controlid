@@ -21,13 +21,12 @@ const app = new Elysia({ prefix: "/v1" })
   )
   .use(swagger())
   .get("/", () => "Hello Elysia")
-  .post(
-    '/rep',
+  .post('/rep',
     ({ body }) => {
       const existingRep = db.query("SELECT * FROM reps WHERE ip = ?").get(body.ip);
 
       if (existingRep) {
-        return existingRep;
+        return existingRep
       }
       const newRep = db.query("INSERT INTO reps (ip, description) VALUES (?, ?)").values(body.ip, body.description);
 
